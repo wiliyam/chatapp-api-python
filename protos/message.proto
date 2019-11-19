@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "io.grpc.examples.routeguide";
+option java_outer_classname = "chatProto";
+option objc_class_prefix = "RTG";
+
+// define packege name
+package message;
+
+// define chat service
+service chat {
+
+      // define chat methods
+      
+      //message type chat method
+      rpc messageChat(stream Chatmessage) returns (stream Chatmessage) {}
+}
+
+
+message Chatmessage{
+    string message=1;
+    int32 type=2;         //1-message 2-image 3-video 4-location
+    bytes data=3;       //byte data
+    float lat=4;
+    float long=5;
+    string chat_id=6;
+    string source_id=7;
+    string destination_id=8;
+    string source_device_id=9;
+    string source_device_ip=10;
+    string source_device_time=11;
+    string source_device_os=12;
+    string source_device_os_version=13;
+}
