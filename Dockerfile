@@ -1,5 +1,11 @@
 #use grpc install pyton
-FROM grpc/python
+FROM python:3.7
+
+RUN python -m pip install --upgrade pip
+
+RUN python -m pip install grpcio
+
+RUN python -m pip install grpcio-tools
 
 RUN mkdir /chatapp
 
@@ -11,5 +17,5 @@ RUN git clone https://github.com/wiliyam/chatapp-api-python.git/.
 
 RUN git pull
 
-CMD ["python","server.py"]
+CMD ["python3","server.py"]
 
