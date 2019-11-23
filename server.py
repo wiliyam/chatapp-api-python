@@ -69,7 +69,7 @@ def serve():
     server.add_insecure_port('[::]:50051')
     server.start()
     print("server is up and wait_for_termination")
-    # server.wait_for_termination()
+    server.wait_for_termination()
 
 
 if __name__ == '__main__':
