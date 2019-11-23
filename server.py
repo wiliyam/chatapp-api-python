@@ -61,8 +61,7 @@ def serve():
         private_key = f.read()
     with open('server.crt', 'rb') as f:
         certificate_chain = f.read()
-    server_credentials = grpc.ssl_server_credentials(
-      ((private_key, certificate_chain,),))
+    server_credentials = grpc.insecure_channel()
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     message_pb2_grpc.add_chatServicer_to_server(
