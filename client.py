@@ -46,12 +46,13 @@ def messageChat(stub):
 
 
 def run():
-    with open('server.crt', 'rb') as f:
-        trusted_certs = f.read()
 
-#     credentials = grpc.insecure_channel()
+    ca_cert = 'server.crt'
+    root_certs = open(ca_cert).read()
+#     print(root_certs)
+    credentials = grpc.ssl_channel_credentials(bytes(root_certs,'utf-8'))
     #create secure channle
-    channel = grpc.insecure_channel('{}:{}'.format(SERVER_ADDRESS,PORT))
+    channel = grpc.secure_channel('{}:{}'.format(SERVER_ADDRESS,PORT),credentials)
     stub = message_pb2_grpc.chatStub(channel)
     print("===sending message===>>")
     messageChat(stub)

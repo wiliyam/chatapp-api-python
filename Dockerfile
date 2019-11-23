@@ -17,5 +17,5 @@ RUN git clone https://github.com/wiliyam/chatapp-api-python.git/.
 
 RUN git pull
 
-CMD ["python3","server.py"]
+CMD ["python","-u","server.py"]
 

@@ -68,7 +68,16 @@ def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     message_pb2_grpc.add_chatServicer_to_server(
         chatServicer(), server)
-    server.add_insecure_port('[::]:50051')
+    keyfile = 'server.key'
+    certfile = 'server.crt'
+
+    private_key = open(keyfile).read()
+    # print(private_key)
+    certificate_chain = open(certfile).read()
+    credentials = grpc.ssl_server_credentials(
+        [(bytes(private_key, 'utf-8'),bytes(certificate_chain, 'utf-8'))]
+        )
+    server.add_secure_port('[::]:' + str(50051), credentials)
     server.start()
     print("server is up and wait_for_termination.............")
     server.wait_for_termination()
