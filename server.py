@@ -57,11 +57,11 @@ class chatServicer(message_pb2_grpc.chatServicer):
 
 
 def serve():
-    with open('server.key', 'rb') as f:
-        private_key = f.read()
-    with open('server.crt', 'rb') as f:
-        certificate_chain = f.read()
-    server_credentials = grpc.insecure_channel()
+    # with open('server.key', 'rb') as f:
+    #     private_key = f.read()
+    # with open('server.crt', 'rb') as f:
+    #     certificate_chain = f.read()
+    # server_credentials = grpc.insecure_channel()
 
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     message_pb2_grpc.add_chatServicer_to_server(

@@ -9,5 +9,7 @@ ARG gitpassword
 
 RUN git clone https://github.com/wiliyam/chatapp-api-python.git/.
 
+RUN git pull
+
 CMD ["python","server.py"]
 
