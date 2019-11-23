@@ -11,6 +11,9 @@ import grpc
 # from message import message_pb2
 import message.message_pb2 as message_pb2
 import message.message_pb2_grpc as message_pb2_grpc
+import sys
+sys.stdout.flush()
+
 
 class chatServicer(message_pb2_grpc.chatServicer):
     """Provides methods that implement functionality of route guide server."""

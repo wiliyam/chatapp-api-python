@@ -1,6 +1,6 @@
 version: "3"
 services:
-  gepc_server:
-    image: wiliyam/chatapp
+  gepc_server_python:
+    image: wiliyam/pchatapp
     ports:
       - 50051:50051
