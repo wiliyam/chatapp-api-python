@@ -66,7 +66,7 @@ def serve():
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     message_pb2_grpc.add_chatServicer_to_server(
         chatServicer(), server)
-    server.add_secure_port('[::]:50051',server_credentials)
+    server.add_insecure_port('[::]:50051')
     server.start()
     print("server is up and wait_for_termination")
     # server.wait_for_termination()
