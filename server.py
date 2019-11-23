@@ -17,8 +17,8 @@ class chatServicer(message_pb2_grpc.chatServicer):
 
     # def __init__(self):
         # self.db = {}
-    def generate_messages():
-        message_pb2.Chatmessage(
+    def generate_messages(self):
+        chatMessaage= message_pb2.Chatmessage(
         message="hello from server",
         type=1,
         data=bytes(0),
@@ -32,25 +32,42 @@ class chatServicer(message_pb2_grpc.chatServicer):
         source_device_os="macos",
         source_device_os_version="12.0"
         )
-        for _ in range(0, 10):
-                chat_item=msg
-                print("chat_item %s" % chat_item)
-                yield chat_item
+        return chatMessaage
 
     def messageChat(self,request,contex):
-        prev_chat=[]
-        for chat in request:
-            if prev_chat == chat:
-                    yield prev_chat
-        prev_chat.append(chat)
+        chatMessaage= message_pb2.Chatmessage(
+        message="hello from server",
+        type=1,
+        data=bytes(0),
+        lat=12.971599,
+        long=77.594566,
+        chat_id="mainchatid",
+        source_id="serversourceid",
+        destination_id="destinationid",
+        source_device_id="server device id",
+        source_device_time="servertime",
+        source_device_os="macos",
+        source_device_os_version="12.0"
+        )
+        
+        print("msg==>>",request)
+
+        return chatMessaage
 
 
 
 def serve():
+    with open('server.key', 'rb') as f:
+        private_key = f.read()
+    with open('server.crt', 'rb') as f:
+        certificate_chain = f.read()
+    server_credentials = grpc.ssl_server_credentials(
+      ((private_key, certificate_chain,),))
+
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     message_pb2_grpc.add_chatServicer_to_server(
         chatServicer(), server)
-    server.add_insecure_port('[::]:50051')
+    server.add_secure_port('[::]:50051',server_credentials)
     server.start()
     print("server is up and wait_for_termination")
     server.wait_for_termination()

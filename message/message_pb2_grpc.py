@@ -14,7 +14,7 @@ class chatStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.messageChat = channel.stream_stream(
+    self.messageChat = channel.unary_unary(
         '/message.chat/messageChat',
         request_serializer=message__pb2.Chatmessage.SerializeToString,
         response_deserializer=message__pb2.Chatmessage.FromString,
@@ -25,7 +25,7 @@ class chatServicer(object):
   """define chat service
   """
 
-  def messageChat(self, request_iterator, context):
+  def messageChat(self, request, context):
     """define chat methods
 
     message type chat method
@@ -37,7 +37,7 @@ class chatServicer(object):
 
 def add_chatServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'messageChat': grpc.stream_stream_rpc_method_handler(
+      'messageChat': grpc.unary_unary_rpc_method_handler(
           servicer.messageChat,
           request_deserializer=message__pb2.Chatmessage.FromString,
           response_serializer=message__pb2.Chatmessage.SerializeToString,

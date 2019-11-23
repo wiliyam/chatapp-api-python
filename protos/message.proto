@@ -14,7 +14,7 @@ service chat {
       // define chat methods
       
       //message type chat method
-      rpc messageChat(stream Chatmessage) returns (stream Chatmessage) {}
+      rpc messageChat(Chatmessage) returns (Chatmessage) {}
 }
 
 

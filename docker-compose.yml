@@ -1,0 +1,6 @@
+version: "3"
+services:
+  gepc_server:
+    image: wiliyam/chatapp
+    ports:
+      - 3000:50051
