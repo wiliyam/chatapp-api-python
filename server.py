@@ -38,18 +38,18 @@ class chatServicer(message_pb2_grpc.chatServicer):
 
     def messageChat(self,request,contex):
         chatMessaage= message_pb2.Chatmessage(
-        message="hello from server",
-        type=1,
-        data=bytes(0),
-        lat=12.971599,
-        long=77.594566,
-        chat_id="mainchatid",
-        source_id="serversourceid",
-        destination_id="destinationid",
-        source_device_id="server device id",
-        source_device_time="servertime",
-        source_device_os="macos",
-        source_device_os_version="12.0"
+        message=request,
+        # type=1,
+        # data=bytes(0),
+        # lat=12.971599,
+        # long=77.594566,
+        # chat_id="mainchatid",
+        # source_id="serversourceid",
+        # destination_id="destinationid",
+        # source_device_id="server device id",
+        # source_device_time="servertime",
+        # source_device_os="macos",
+        # source_device_os_version="12.0"
         )
         
         print("msg==>>",request)
@@ -77,7 +77,7 @@ def serve():
     # credentials = grpc.ssl_server_credentials(
     #     [(bytes(private_key, 'utf-8'),bytes(certificate_chain, 'utf-8'))]
     #     )
-    server.add_insecure_port('[::]:' + str(50051))
+    server.add_insecure_port('[::]:' + str(50051),options=[{"name":"abc"}])
     server.start()
     print("server is up and wait_for_termination.............")
     server.wait_for_termination()

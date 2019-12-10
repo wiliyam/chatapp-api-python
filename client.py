@@ -12,7 +12,7 @@ def generate_messages():
         data=bytes(0),
         lat=12.971599,
         long=77.594566,
-        chat_id="mainchatid",
+        chat_id ="mainchatid",
         source_id="client1sourceid",
         destination_id="serverid",
         source_device_id="client1 device id",
@@ -23,21 +23,22 @@ def generate_messages():
         return msg
 
 def messageChat(stub):
-        msg=message_pb2.Chatmessage(
-        message="hello from client1",
-        type=1,
-        data=bytes(0),
-        lat=12.971599,
-        long=77.594566,
-        chat_id="mainchatid",
-        source_id="client1sourceid",
-        destination_id="serverid",
-        source_device_id="client1 device id",
-        source_device_time="client1time",
-        source_device_os="macos1",
-        source_device_os_version="12.0"
-        )
-        responses = stub.messageChat(msg)
+        # msg=message_pb2.Chatmessage(
+        # message="hello from client1",
+        # type=1,
+        # data=bytes(0),
+        # lat=12.971599,
+        # long=77.594566,
+        # chat_id="mainchatid",
+        # source_id="client1sourceid",
+        # destination_id="serverid",
+        # source_device_id="client1 device id",
+        # source_device_time="client1time",
+        # source_device_os="macos1",
+        # source_device_os_version="12.0"
+        # )
+        message=message_pb2.Chatmessage(message=input("typing..."))
+        responses = stub.messageChat(message)
         
         print("response=>",responses)
 

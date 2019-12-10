@@ -4,3 +4,5 @@ services:
     image: wiliyam/pchatapp
     ports:
       - 50051:50051
+    volumes:
+      - /chatapp:/chatapp
