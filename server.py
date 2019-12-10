@@ -38,7 +38,7 @@ class chatServicer(message_pb2_grpc.chatServicer):
 
     def messageChat(self,request,contex):
         chatMessaage= message_pb2.Chatmessage(
-        message=request,
+        message="hello from server",
         # type=1,
         # data=bytes(0),
         # lat=12.971599,
