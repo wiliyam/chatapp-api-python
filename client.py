@@ -39,7 +39,7 @@ def messageChat(stub):
         # source_device_os_version="12.0"
         # )
         random.seed(5)
-        topic=random.random()
+        topic=random.randint(100, 999)
 
         message=message_pb2.Chatmessage(message=input(
                 "typing...topic={}".format(topic)),

@@ -20,7 +20,7 @@ class chatServicer(message_pb2_grpc.chatServicer):
 
     def messageChat(self,request,contex):
         random.seed(5)
-        topic=random.random()
+        topic=random.randint(100, 999)
         chatMessaage= message_pb2.Chatmessage(
         message="hello from server topic={}".format(topic),
         topic=topic
