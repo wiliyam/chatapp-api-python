@@ -14,22 +14,23 @@ service chat {
       // define chat methods
       
       //message type chat method
-      rpc messageChat(Chatmessage) returns (Chatmessage) {}
+      rpc messageChat() returns (Chatmessage) {}
 }
 
 
 message Chatmessage{
     string message=1;
-    number rnum=2;         //1-message 2-image 3-video 4-location
-    // bytes data=3;       //byte data
-    // float lat=4;
-    // float long=5;
-    // string chat_id=6;
-    // string source_id=7;
-    // string destination_id=8;
-    // string source_device_id=9;
-    // string source_device_ip=10;
-    // string source_device_time=11;
-    // string source_device_os=12;
-    // string source_device_os_version=13;
+    number type=2;         //0-typing 1-message 2-image 3-video 4-location
+    bytes data=3;       //byte data
+    float lat=4;
+    float long=5;
+    string chat_id=6;
+    string source_id=7;
+    string destination_id=8;
+    string source_device_id=9;
+    string source_device_ip=10;
+    string source_device_time=11;
+    string source_device_os=12;
+    string source_device_os_version=13;
+    number id=14;
 }

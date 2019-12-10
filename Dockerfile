@@ -7,15 +7,15 @@ RUN python -m pip install grpcio
 
 RUN python -m pip install grpcio-tools
 
-RUN mkdir /chatapp
+# RUN mkdir /chatapp
 
 WORKDIR chatapp
 
-ARG gitpassword
+# ARG gitpassword
 
-RUN git clone https://github.com/wiliyam/chatapp-api-python.git/.
+# RUN git clone https://github.com/wiliyam/chatapp-api-python.git/.
 
-RUN git pull
+# RUN git pull
 
 CMD ["python","-u","server.py"]
 

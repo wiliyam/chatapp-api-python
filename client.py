@@ -42,7 +42,7 @@ def messageChat(stub):
         topic=random.randint(100, 999)
         msg=input("typing...topic={}\n".format(topic))
         message=message_pb2.Chatmessage(message=msg,
-        rnum=topic)
+        type=0,id=topic)
         responses = stub.messageChat(message)
         
         print("response=>",responses)
