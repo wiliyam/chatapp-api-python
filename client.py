@@ -1,6 +1,7 @@
 import grpc
 
 from message import message_pb2,message_pb2_grpc
+import random
 
 SERVER_ADDRESS = '13.233.6.179'
 PORT = 50051
@@ -37,7 +38,12 @@ def messageChat(stub):
         # source_device_os="macos1",
         # source_device_os_version="12.0"
         # )
-        message=message_pb2.Chatmessage(message=input("typing..."))
+        random.seed(5)
+        topic=random.random()
+
+        message=message_pb2.Chatmessage(message=input(
+                "typing...topic={}".format(topic)),
+        topic=topic)
         responses = stub.messageChat(message)
         
         print("response=>",responses)

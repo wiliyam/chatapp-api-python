@@ -20,7 +20,7 @@ service chat {
 
 message Chatmessage{
     string message=1;
-    // int32 type=2;         //1-message 2-image 3-video 4-location
+    int32 topic=2;         //1-message 2-image 3-video 4-location
     // bytes data=3;       //byte data
     // float lat=4;
     // float long=5;

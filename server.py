@@ -1,6 +1,7 @@
 from concurrent import futures
 import time
 import logging
+import random
 
 import grpc
 
@@ -17,28 +18,12 @@ import message.message_pb2_grpc as message_pb2_grpc
 class chatServicer(message_pb2_grpc.chatServicer):
     """Provides methods that implement functionality of route guide server."""
 
-    # def __init__(self):
-        # self.db = {}
-    def generate_messages(self):
-        chatMessaage= message_pb2.Chatmessage(
-        message="hello from server",
-        type=1,
-        data=bytes(0),
-        lat=12.971599,
-        long=77.594566,
-        chat_id="mainchatid",
-        source_id="serversourceid",
-        destination_id="destinationid",
-        source_device_id="server device id",
-        source_device_time="servertime",
-        source_device_os="macos",
-        source_device_os_version="12.0"
-        )
-        return chatMessaage
-
     def messageChat(self,request,contex):
+        random.seed(5)
+        topic=random.random()
         chatMessaage= message_pb2.Chatmessage(
-        message="hello from server",
+        message="hello from server topic={}".format(topic),
+        topic=topic
         # type=1,
         # data=bytes(0),
         # lat=12.971599,
