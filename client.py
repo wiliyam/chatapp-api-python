@@ -40,10 +40,9 @@ def messageChat(stub):
         # )
         random.seed(5)
         topic=random.randint(100, 999)
-
-        message=message_pb2.Chatmessage(message=input(
-                "typing...topic={}".format(topic)),
-        topic=topic)
+        msg=input("typing...topic={}\n".format(topic))
+        message=message_pb2.Chatmessage(message=msg,
+        rnum=topic)
         responses = stub.messageChat(message)
         
         print("response=>",responses)

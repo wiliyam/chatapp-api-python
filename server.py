@@ -22,8 +22,8 @@ class chatServicer(message_pb2_grpc.chatServicer):
         random.seed(5)
         topic=random.randint(100, 999)
         chatMessaage= message_pb2.Chatmessage(
-        message="hello from server topic={}".format(topic),
-        topic=topic
+        message="hello from server topic={}\n".format(topic),
+        rnum=topic
         # type=1,
         # data=bytes(0),
         # lat=12.971599,
