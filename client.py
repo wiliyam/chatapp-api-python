@@ -3,7 +3,7 @@ import grpc
 from message import message_pb2,message_pb2_grpc
 import random
 
-SERVER_ADDRESS = 'api.4star.ga'
+SERVER_ADDRESS = '13.233.6.179'
 PORT = 50051
 
 def generate_messages():
@@ -58,7 +58,7 @@ def run():
 # #     print(root_certs)
 #     credentials = grpc.ssl_channel_credentials(bytes(root_certs,'utf-8'))
     #create secure channle
-    channel = grpc.insecure_channel('{}:{}'.format(SERVER_ADDRESS,80))
+    channel = grpc.insecure_channel('{}:{}'.format(SERVER_ADDRESS,50051))
     stub = message_pb2_grpc.chatStub(channel)
     print("===sending message===>>")
     messageChat(stub)
