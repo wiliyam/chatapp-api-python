@@ -1,8 +1,10 @@
 version: "3"
 services:
   gepc_server_python:
-    image: wiliyam/pchatapp
+    image: wiliyam/pchatapp:latest
+    command: ls
+    command: python server.py
     ports:
       - 50051:50051
     volumes:
-      - /chatapp:/python-chat-app/chatapp-api-python
+      - /python-chat-app/chatapp-api-python:/chatapp
