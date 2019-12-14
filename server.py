@@ -10,8 +10,10 @@ import grpc
 
 # from .message import message_pb2
 # from message import message_pb2
-import message.message_pb2 as message_pb2
-import message.message_pb2_grpc as message_pb2_grpc
+# import message.message_pb2 as message_pb2
+# import message.message_pb2_grpc as message_pb2_grpc
+
+from message import message_pb2,message_pb2_grpc
 
 
 
@@ -23,7 +25,7 @@ class chatServicer(message_pb2_grpc.chatServicer):
         topic=random.randint(100, 999)
         chatMessaage= message_pb2.Chatmessage(
         message="hello from server topic={}\n".format(topic),
-        rnum=topic
+        topic=topic
         # type=1,
         # data=bytes(0),
         # lat=12.971599,
@@ -55,17 +57,17 @@ def serve():
         chatServicer(), server)
  
  
-    keyfile = 'server.key'
-    certfile = 'server.crt'
-    private_key = open(keyfile).read()
-    # print(private_key)
-    certificate_chain = open(certfile).read()
-    credentials = grpc.ssl_server_credentials(
-        [(bytes(private_key, 'utf-8'),bytes(certificate_chain, 'utf-8'))]
-        )
-    server.add_insecure_port('localhost:' + str(50051),options=[{"name":"abc"}])
+    # keyfile = 'server.key'
+    # certfile = 'server.crt'
+    # private_key = open(keyfile).read()
+    # # print(private_key)
+    # certificate_chain = open(certfile).read()
+    # credentials = grpc.ssl_server_credentials(
+    #     [(bytes(private_key, 'utf-8'),bytes(certificate_chain, 'utf-8'))]
+    #     )
+    server.add_insecure_port('localhost:' + str(50051))
     server.start()
-    print("server is up and wait_for_termination.............om port S{} ".format(50051))
+    print("server is up and wait_for_termination.............om port :{} ".format(50051))
     server.wait_for_termination()
 
 

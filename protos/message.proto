@@ -14,13 +14,13 @@ service chat {
       // define chat methods
       
       //message type chat method
-      rpc messageChat() returns (Chatmessage) {}
+      rpc messageChat(Chatmessage) returns (Chatmessage) {}
 }
 
 
 message Chatmessage{
     string message=1;
-    number type=2;         //0-typing 1-message 2-image 3-video 4-location
+    float type=2;         //0-typing 1-message 2-image 3-video 4-location
     bytes data=3;       //byte data
     float lat=4;
     float long=5;
@@ -32,5 +32,6 @@ message Chatmessage{
     string source_device_time=11;
     string source_device_os=12;
     string source_device_os_version=13;
-    number id=14;
+    float id=14;
+    float topic=15;
 }

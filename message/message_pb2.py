@@ -20,7 +20,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   package='message',
   syntax='proto3',
   serialized_options=_b('\n\033io.grpc.examples.routeguideB\tchatProtoP\001\242\002\003RTG'),
-  serialized_pb=_b('\n\rmessage.proto\x12\x07message\"\x9d\x02\n\x0b\x43hatmessage\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\x05\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\x12\x0b\n\x03lat\x18\x04 \x01(\x02\x12\x0c\n\x04long\x18\x05 \x01(\x02\x12\x0f\n\x07\x63hat_id\x18\x06 \x01(\t\x12\x11\n\tsource_id\x18\x07 \x01(\t\x12\x16\n\x0e\x64\x65stination_id\x18\x08 \x01(\t\x12\x18\n\x10source_device_id\x18\t \x01(\t\x12\x18\n\x10source_device_ip\x18\n \x01(\t\x12\x1a\n\x12source_device_time\x18\x0b \x01(\t\x12\x18\n\x10source_device_os\x18\x0c \x01(\t\x12 \n\x18source_device_os_version\x18\r \x01(\t2C\n\x04\x63hat\x12;\n\x0bmessageChat\x12\x14.message.Chatmessage\x1a\x14.message.Chatmessage\"\x00\x42\x30\n\x1bio.grpc.examples.routeguideB\tchatProtoP\x01\xa2\x02\x03RTGb\x06proto3')
+  serialized_pb=_b('\n\rmessage.proto\x12\x07message\"\xb8\x02\n\x0b\x43hatmessage\x12\x0f\n\x07message\x18\x01 \x01(\t\x12\x0c\n\x04type\x18\x02 \x01(\x02\x12\x0c\n\x04\x64\x61ta\x18\x03 \x01(\x0c\x12\x0b\n\x03lat\x18\x04 \x01(\x02\x12\x0c\n\x04long\x18\x05 \x01(\x02\x12\x0f\n\x07\x63hat_id\x18\x06 \x01(\t\x12\x11\n\tsource_id\x18\x07 \x01(\t\x12\x16\n\x0e\x64\x65stination_id\x18\x08 \x01(\t\x12\x18\n\x10source_device_id\x18\t \x01(\t\x12\x18\n\x10source_device_ip\x18\n \x01(\t\x12\x1a\n\x12source_device_time\x18\x0b \x01(\t\x12\x18\n\x10source_device_os\x18\x0c \x01(\t\x12 \n\x18source_device_os_version\x18\r \x01(\t\x12\n\n\x02id\x18\x0e \x01(\x02\x12\r\n\x05topic\x18\x0f \x01(\x02\x32\x43\n\x04\x63hat\x12;\n\x0bmessageChat\x12\x14.message.Chatmessage\x1a\x14.message.Chatmessage\"\x00\x42\x30\n\x1bio.grpc.examples.routeguideB\tchatProtoP\x01\xa2\x02\x03RTGb\x06proto3')
 )
 
 
@@ -42,8 +42,8 @@ _CHATMESSAGE = _descriptor.Descriptor(
       serialized_options=None, file=DESCRIPTOR),
     _descriptor.FieldDescriptor(
       name='type', full_name='message.Chatmessage.type', index=1,
-      number=2, type=5, cpp_type=1, label=1,
-      has_default_value=False, default_value=0,
+      number=2, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
@@ -124,6 +124,20 @@ _CHATMESSAGE = _descriptor.Descriptor(
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='message.Chatmessage.id', index=13,
+      number=14, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
+    _descriptor.FieldDescriptor(
+      name='topic', full_name='message.Chatmessage.topic', index=14,
+      number=15, type=2, cpp_type=6, label=1,
+      has_default_value=False, default_value=float(0),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR),
   ],
   extensions=[
   ],
@@ -137,7 +151,7 @@ _CHATMESSAGE = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=27,
-  serialized_end=312,
+  serialized_end=339,
 )
 
 DESCRIPTOR.message_types_by_name['Chatmessage'] = _CHATMESSAGE
@@ -159,8 +173,8 @@ _CHAT = _descriptor.ServiceDescriptor(
   file=DESCRIPTOR,
   index=0,
   serialized_options=None,
-  serialized_start=314,
-  serialized_end=381,
+  serialized_start=341,
+  serialized_end=408,
   methods=[
   _descriptor.MethodDescriptor(
     name='messageChat',
