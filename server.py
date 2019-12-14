@@ -5,15 +5,15 @@ import random
 
 import grpc
 
-# import message.message_pb2 as message_pb2
-# import message.message_pb2_grpc as message_pb2_grpc 
+import message.message_pb2 as message_pb2
+import message.message_pb2_grpc as message_pb2_grpc 
 
 # from .message import message_pb2
 # from message import message_pb2
 # import message.message_pb2 as message_pb2
 # import message.message_pb2_grpc as message_pb2_grpc
 
-from message import message_pb2,message_pb2_grpc
+# from message import message_pb2,message_pb2_grpc
 
 
 
