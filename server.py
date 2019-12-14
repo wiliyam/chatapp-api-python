@@ -65,7 +65,7 @@ def serve():
         )
     server.add_insecure_port('localhost:' + str(50051),options=[{"name":"abc"}])
     server.start()
-    print("server is up and wait_for_termination.............")
+    print("server is up and wait_for_termination.............om port {} ".format(50051))
     server.wait_for_termination()
 
 

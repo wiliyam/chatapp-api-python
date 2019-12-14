@@ -5,4 +5,4 @@ services:
     ports:
       - 50051:50051
     volumes:
-      - /chatapp:/chatapp
+      - /chatapp:/python-chat-app/chatapp-api-python
