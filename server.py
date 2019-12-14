@@ -10,7 +10,7 @@ import grpc
 
 # from .message import message_pb2
 # from message import message_pb2
-from message import message_pb2
+import message.message_pb2 as message_pb2
 import message.message_pb2_grpc as message_pb2_grpc
 
 
@@ -65,7 +65,7 @@ def serve():
         )
     server.add_insecure_port('localhost:' + str(50051),options=[{"name":"abc"}])
     server.start()
-    print("server is up and wait_for_termination.............om port 50051{} ".format(50051))
+    print("server is up and wait_for_termination.............om port S{} ".format(50051))
     server.wait_for_termination()
 
 
