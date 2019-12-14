@@ -5,7 +5,7 @@ RUN python -m pip install --upgrade pip
 
 RUN python -m pip install grpcio
 
-RUN python -m pip install grpcio-tools
+RUN python -m pip install grpcio
 
 # RUN mkdir /chatapp
 
