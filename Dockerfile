@@ -17,5 +17,5 @@ WORKDIR chatapp
 
 # RUN git pull
 
-CMD ["python","-u","server.py"]
+# CMD ["python","-u","server.py"]
 
